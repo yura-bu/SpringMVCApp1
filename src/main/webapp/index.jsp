@@ -12,6 +12,8 @@
 </head>
 <body>
 <p>Boooo</p>
-<a href="first/hello">Start</a>
+<a href="/first/hello">Start</a>
+<p>______________________</p>
+<a href="/first/calculator">Calculator</a>
 </body>
 </html>

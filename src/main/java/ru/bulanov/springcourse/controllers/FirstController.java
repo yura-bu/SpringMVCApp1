@@ -24,4 +24,39 @@ public class FirstController {
     public String sayStop(){
         return "first/finish";
     }
+    @GetMapping("/calculator")
+    public String calculate(@RequestParam(value = "a", required = false) String a, @RequestParam(value = "b", required = false) String b,
+                            @RequestParam(value = "action", required = false) String action,
+                            Model model){
+        if(a == null || b == null || action == null){
+            model.addAttribute("result", "no parameters");
+        }else {
+            int first = Integer.parseInt(a);
+            int second = Integer.parseInt(b);
+
+            switch (action) {
+                case "multiplication" -> {
+                    int res = first * second;
+
+                    model.addAttribute("result", a + " * " + b + " = " + res);
+                }
+                case "addition" -> {
+                    int res = first + second;
+                    model.addAttribute("result", a + " + " + b + " = " + res);
+                }
+                case "subtraction" -> {
+                    int res = first - second;
+                    model.addAttribute("result", a + " - " + b + " = " + res);
+                }
+                case "division" -> {
+                    double res = first / (double)second;
+                    model.addAttribute("result", a + " / " + b + " = " + res);
+                }
+                default -> model.addAttribute("result", "Exception: there is no such action");
+            }
+        }
+
+
+        return "first/calculate";
+    }
 }
