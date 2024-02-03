@@ -1,4 +1,4 @@
-package ru.bulanov.springcourse;
+package ru.bulanov.springcourse.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
